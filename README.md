@@ -1,6 +1,6 @@
 # Front - MVP - Módulo 4
 
-Este pequeno projeto faz parte do MVP da Disciplina **Qualidade de Software, Segurança e Sistemas Inteligentes** 
+Este é o front-end projeto final do quarto módulo, **Qualidade de Software, Segurança e Sistemas Inteligentes** , da Pós-Graduação em Engenharia de Software da PUC-Rio.
 
 
 ---
