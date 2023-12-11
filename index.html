@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>AI YT Analysis System</title>
+    <link rel="icon" href="img/home.png" type="image/png">
+</head>
+
+<body>
+    <!-- Cabeçalho de informações do sistema -->
+    <header>
+        <div class="title">
+            <h2>Bem-Vindo ao YT Analysis System</h2>
+            <br>
+            <p>Este sistema foi desenvolvido para estimar o sucesso de um canal do YouTube.</p>
+            <p>Para isso, basta preencher os campos abaixo com os dados do paciente e clicar em "Prever".</p>
+        </div>
+        <!-- <div class="banner">
+            <img src="img/home.jpeg">
+        </div> -->
+    </header>
+
+    <!-- Opções para adicionar um novo item -->
+
+    <section class="newItem">
+        <input type="text" id="newName" placeholder="Nome">
+        <input type="text" id="newSubs" placeholder="Subscribes">
+        <input type="text" id="newVidView" placeholder="Views">
+        <input type="text" id="newUploads" placeholder="Uploads">
+        <select id="newCountry">
+            <option value="" disabled selected>Country</option>
+        </select>
+        <select id="newCategory">
+            <option value="" disabled selected>Category</option>
+        </select>
+        <input type="text" id="newVideo_views_30" placeholder="Views - Last 30 days">
+        <input type="text" id="newHigest_earnings" placeholder="Highest Earnings per month">
+        <span onclick="newItem()" class="addBtn">Prever</span>
+    </section>
+
+    <!-- Tabela com items existentes -->
+    <section class="items">
+        <table id="myTable">
+            <tr>
+                <th>Nome</th>
+                <th>Subscribes</th>
+                <th>Views</th>
+                <th>Uploads</th>
+                <th>Country</th>
+                <th>Category</th>
+                <th>Views - Last 30 days</th>
+                <th>Highest Earnings per month</th>
+                <th>Pays Well</th>
+                <th><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAnFBMVEXfACT////fACLeAB7lMU375un40tfeABreAA3qUWvfDCj6193eABXiLkL3wcrdAAn2xszyoa3hFTH1r7numaDiDzbviJfvlJ798fP++Pr64OP97fDxlqTrdIToYHDukZ3dAADqaHniIz3jO07tgI/lUF/mR1v3zNLrfIbsjJTqcn3ztr7wp6/jH0LnPVjnRl/qXHTkSFbjEDvnXG2x8H09AAAEm0lEQVR4nO2d63aiMBRGSQ4ai1ERBREvHfHWqrUz7fu/29g62pkxWJYlCXR9+28WLrZJIJzAOY4DAAAAAAAAAAAAAMB3gWdj+9SKgBM5XgaHxupLkjOfLqKxkvtoskyp4oqiFa2HLJtab+pUWlGu2lf03knuq9yLwm1+JsjYsN+orCIP1p8LHhRn0vaZ3oocXJuCfw3UkGyf6m2Qm+QSZKxf0U6UUZzTsB5UciZy0cspyJJVJYcp9/y8hqOpsH22t8C9SX+Qj2heyT58X6tcWXR/hxV4Xr3KCoJqwElIrQhhc2HOhfTm04fHvjYGj5vDE6SwdKXlglaP23ot78LlJoajZnu3eZE2HKnz3Evyray/yqgeBcZXrlx6Xa2d9y/D5K5jthu5uMvxbFsoXc/kJYe8hcEO/MN6b06RB/fmBQ+KS1OLH+7kfvArWHFvaC7K2ciKIGNtM0/KFOQNThTPfcOE4Y+dNUEWPxkYp2Jv5javZvtD+zjlMndsQgvP2uMd4tnWZeZIT2ruRC67NgcpY4numcjDXIF6fcQTzWtwsbR3qziy0zxM5YPdaciYr3m/sdG3Ow0Zq2ueiA2Lt/sjTVevoezXLONrjo9Ta7/fu1bxNN8QyToIkIP85N93KQQLglmvcunBwntFcts0SPLT+C4xb5gNmJp/54Y36jAsFBujFIbFcgdDGMIQhjCEIQxhaM5wlCTJtZjxW/u1LfLM9pIYxtvZU/g0a2dFjYdv7e4kc3/uePyD6iubchjGg0ASJ5lm7U916b09zAgrx9Hx+Nb28vhyGG6DY7CWAvW3QDvv2C5CdS/2nD/t7mV7KQxrr6ezkHeqToyXp3YxUwkO3fPxDxdzsRSG6/O7IJxqCoNteorH01y1R7c+f/+k+BalFIb+ORzNpSqI0z3/A9RSDeNe5/Tj9HJxfOkMVTvF+Q15ePHjpTNU3SxhCEMYwhCGMIQhDGEIQxjCEIYwhCEMYQhDGMIQhjCEIQxhCEMYwhCGMIQhDGEIQxjCEIYwhCEMYQhDGMIQhjCEIQxhCEMYwhCGMIQhDGEIQxjCEIYwhCEMYQhDGMIQhjCEIQxhCEMYwhCGMPwOhl/Mm/hUzryJ63OlFC5UmXJ7n+S+9D8MS5r7MjnXlxTPqvylo1/n9qmimcXB6R9oXBZULoXhOYcsOeoctONTjtlAnYO2eywTzyktaQ5aNooCQZxEOM7II7zwJBHJcKxujieH44lEuitrHmE22k1boTtVJDo+9dLMbbmbbVbz4Xg3nW9Ux+uvsJrLkLGa3/ZVGXY/2v31tXzfid9Wt5sqWP0XDbNVc02UOv6PjtFaj0MLJfPkzKRhrWPekF5MGo6NlBz/F94xWZbM/KX0gJyYE/xIhm4SSo114nBio/6hw/nEVG3gj3z1hhXDnhnB5NVWeVWaGylDHi+sjNF35MrAwma0ENYED4pz9XNSgdSsCh4e9dKd1mLrw/VUc7X4TyGx2epzbA5c24JvMZl0061fq3B0K0kvWjl2bhP/QRTMXyeLqFgW02XKS1OEm5Mo/L/mpSsy/g3KVAMAAAAAAAAAAAAA8BV+AzUX2fW29HgnAAAAAElFTkSuQmCC"
+                        width="25" height="25"></th>
+                <!-- <th><img src="img/edit.png" width="15" height="15"></th> -->
+            </tr>
+        </table>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
