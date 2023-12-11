@@ -1,6 +1,6 @@
-# Meu Front
+# Front YT Analysis System
 
-Este pequeno projeto faz parte do material diático da Disciplina **Desenvolvimento Full Stack Básico** 
+Este pequeno projeto faz parte do MVP Disciplina **Desenvolvimento Full Stack Básico** 
 
 O objetivo aqui é ilutsrar o conteúdo apresentado na terceira aula.
 
