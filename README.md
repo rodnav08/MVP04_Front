@@ -1,8 +1,7 @@
-# Meu Front
+# Front - MVP - Módulo 4
 
-Este pequeno projeto faz parte do material diático da Disciplina **Desenvolvimento Full Stack Básico** 
+Este pequeno projeto faz parte do MVP da Disciplina **Qualidade de Software, Segurança e Sistemas Inteligentes** 
 
-O objetivo aqui é ilutsrar o conteúdo apresentado na terceira aula.
 
 ---
 ## Como executar
