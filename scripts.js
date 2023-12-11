@@ -18,7 +18,7 @@ const getList = async () => {
         item.category,
         item.video_views_30,
         item.highest_earnings,
-        item.outcome
+        item.outcome ? "Yes" : "No"
       ))
     })
     .catch((error) => {
